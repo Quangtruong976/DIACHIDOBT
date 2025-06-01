@@ -276,3 +276,151 @@ body {
 
 
 
+
+
+
+
+
+
+
+
+
+/* --- Media Queries cho thiết bị di động --- */
+
+/* Điều chỉnh cho màn hình có chiều rộng tối đa 768px (điện thoại và một số tablet nhỏ) */
+@media (max-width: 768px) {
+    /* 1. Kích thước Bản đồ */
+    #map {
+        height: 100vh; /* Khiến bản đồ chiếm toàn bộ chiều cao màn hình */
+        /* width: 100%; - Đảm bảo nó luôn là 100% */
+    }
+
+    /* 2. Thanh Menu Dọc - Thay đổi cách hiển thị */
+    #sidebar-menu {
+        width: 100%; /* Khiến menu chiếm toàn bộ chiều rộng */
+        height: auto; /* Chiều cao tự động */
+        position: fixed; /* Giữ menu ở trên cùng */
+        top: 0;
+        left: 0;
+        right: 0;
+        background-color: #333; /* Màu nền cho menu khi ở trên cùng */
+        padding: 10px 0; /* Khoảng đệm */
+        flex-direction: row; /* Chuyển các mục menu thành hàng ngang */
+        justify-content: space-around; /* Căn đều các mục */
+        align-items: center;
+        z-index: 1000; /* Đảm bảo menu ở trên cùng các lớp khác */
+        overflow-x: auto; /* Cho phép cuộn ngang nếu có nhiều mục */
+        overflow-y: hidden; /* Ẩn cuộn dọc */
+        border-right: none; /* Bỏ border phải */
+        border-bottom: 1px solid #444; /* Thêm border dưới */
+    }
+
+    #sidebar-menu ul {
+        flex-direction: row; /* Các mục trong ul cũng thành hàng ngang */
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+
+    #sidebar-menu li {
+        margin: 0 5px; /* Khoảng cách giữa các mục menu */
+        padding: 5px 0;
+        border-bottom: none; /* Bỏ border dưới của từng mục */
+    }
+
+    #sidebar-menu li a {
+        font-size: 0.9em; /* Giảm kích thước chữ */
+        padding: 8px 10px; /* Điều chỉnh padding */
+        display: block; /* Đảm bảo link chiếm toàn bộ không gian */
+    }
+
+    /* Điều chỉnh nội dung chính của bản đồ để không bị menu che khuất */
+    #map {
+        margin-top: 60px; /* Tạo khoảng trống ở trên cho menu đã chuyển vị trí */
+    }
+
+    /* 3. Hộp thông tin địa điểm (Popup) */
+    /* Đây là popup tùy chỉnh của bạn, không phải của Leaflet mặc định */
+    #location-details-popup {
+        width: 90%; /* Chiếm phần lớn chiều rộng màn hình */
+        max-height: 80vh; /* Giới hạn chiều cao */
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); /* Căn giữa màn hình */
+        padding: 15px;
+        overflow-y: auto; /* Cho phép cuộn nếu nội dung dài */
+    }
+
+    #location-details-popup .close-button {
+        top: 5px; /* Điều chỉnh vị trí nút đóng */
+        right: 5px;
+        font-size: 1.5em;
+    }
+
+    #location-details-popup h3 {
+        font-size: 1.2em; /* Giảm kích thước tiêu đề */
+    }
+
+    #location-details-popup p {
+        font-size: 0.9em; /* Giảm kích thước văn bản */
+    }
+
+    #location-details-popup img {
+        max-width: 100%; /* Đảm bảo ảnh không bị tràn */
+        height: auto;
+    }
+
+    /* 4. Carousel ảnh */
+    #location-carousel {
+        width: 150px; /* Thu nhỏ carousel một chút */
+        bottom: 60px; /* Đặt cao hơn để không bị menu/thanh điều hướng điện thoại che */
+        left: 10px;
+        padding: 8px;
+    }
+
+    #carousel-image {
+        height: 80px; /* Thu nhỏ ảnh trong carousel */
+    }
+
+    #carousel-title {
+        font-size: 0.8em; /* Thu nhỏ chữ trong carousel */
+    }
+
+    /* 5. Điều khiển thu phóng của Leaflet */
+    .leaflet-control-zoom {
+        /* Có thể điều chỉnh kích thước nút nếu muốn */
+        /* font-size: 1.2em; */
+    }
+}
+
+/* Thêm một media query nữa cho màn hình rất nhỏ (ví dụ, chiều rộng tối đa 480px) */
+@media (max-width: 480px) {
+    #sidebar-menu {
+        padding: 8px 0;
+    }
+    #sidebar-menu li a {
+        font-size: 0.8em;
+        padding: 6px 8px;
+    }
+    #map {
+        margin-top: 50px; /* Điều chỉnh lại khoảng trống nếu menu nhỏ hơn */
+    }
+    #location-carousel {
+        width: 120px;
+        bottom: 55px;
+        padding: 5px;
+    }
+    #carousel-image {
+        height: 60px;
+    }
+    #carousel-title {
+        font-size: 0.7em;
+    }
+}
+
+
+
+
+
+
+
